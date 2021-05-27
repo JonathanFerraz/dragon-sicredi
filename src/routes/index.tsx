@@ -11,6 +11,7 @@ import {
   NewDragon,
   EditDragon,
   ViewDragon,
+  NotFound,
 } from '../pages';
 import PrivateRoute from './Route';
 
@@ -30,6 +31,7 @@ const Routes: React.FC = () => {
         </Route>
         <Route path={RoutesPaths.login} exact component={Login} />
         <Route path={RoutesPaths.register} exact component={Register} />
+        {/* <Route path={RoutesPaths.notFound} component={NotFound} /> */}
         <PrivateRoute
           path={RoutesPaths.newDragon}
           exact
@@ -58,8 +60,6 @@ class RoutesPaths {
   static newDragon = '/dragon-add';
   static editDragon = '/dragon-edit';
   static viewDragon = '/dragon-detail';
-  static expired = '/acesso/expirado';
-  static unauthorized = '/acesso/negado';
   static notFound = '**';
 }
 export { RoutesPaths };
