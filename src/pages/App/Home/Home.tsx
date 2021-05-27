@@ -35,7 +35,13 @@ export const Home: React.FC = () => {
   const { addToast } = useToast();
 
   const fetchData = useCallback(async () => {
-    const { data } = await axios.get(endpoint);
+    const { data } = await axios.get(endpoint, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods':
+          'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      },
+    });
 
     const dragons = alphabeticalOrder(data);
 
