@@ -9,6 +9,7 @@ import { ReactComponent as Plus } from '../../../assets/img/plus.svg';
 import { Button, Layout, Modal, Shimmer } from '../../../components';
 import { useToast } from '../../../hooks/toast';
 import useRedirect from '../../../hooks/useRedirect';
+import { alphabeticalOrder } from '../../../utils/alphabeticalOrder';
 import {
   Hero,
   Container,
@@ -36,7 +37,9 @@ export const Home: React.FC = () => {
   const fetchData = useCallback(async () => {
     const { data } = await axios.get(endpoint);
 
-    setData(data);
+    const dragons = alphabeticalOrder(data);
+
+    setData(dragons);
   }, []);
 
   useEffect(() => {
