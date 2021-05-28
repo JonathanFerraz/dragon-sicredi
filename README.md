@@ -1,7 +1,7 @@
 ## Tecnologias Utilizadas:
 
 - React
-- Redux
+- Hooks
 - Typescript
 - styled-components
 - Nodejs
@@ -19,15 +19,16 @@ No teste pedia uma área de login com usuário padrão. Resolvi criar um sistema
 - [Node JS LTS](https://nodejs.org/en/download/)
 - [Yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable)
 - [Docker Desktop](https://www.docker.com/get-started)
+- [DBeaver](https://dbeaver.io/download/)
 
 ### Antes de seguir as próximas etapas:
 
 ```bash
 # Clone this repository
-git clone https://github.com/JonathanFerraz/compasso-test.git
+git clone https://github.com/JonathanFerraz/dragon-sicredi.git
 
-# Go to "compasso-test" folder
-cd compasso-test
+# Go to "dragon-sicredi" folder
+cd dragon-sicredi
 ```
 
 ### Como iniciar o servidor
@@ -40,14 +41,14 @@ cd compasso-test
   yarn
 
   # Create a PostgreSQL database instance
-  docker run --name compasso-test -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+  docker run --name dragon-sicredi -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
 ## Obs.:
 
-Após criação da instância, necessário entrar na mesma com algum gerenciador de banco de dados (eu utilizei o [Postico](https://eggerapps.at/postico/)) e preencher os seguintes campos:
+Após criação da instância, necessário entrar na mesma com algum gerenciador de banco de dados (eu utilizei o [DBeaver](https://dbeaver.io/download/)) e preencher os seguintes campos:
 
-- Nickname: (Qualquer um)
+- Database: postgres
 - Host: localhost
 - Port: 5432
 - User: postgres
@@ -55,7 +56,7 @@ Após criação da instância, necessário entrar na mesma com algum gerenciador
 
 "Estes valores podem ser alterados dentro do arquivo .ormconfig.json"
 
-Feito isso, clique em connect e crie uma database chamada "db_compasso" e siga o passo seguinte.
+Feito isso, clique em Finish e crie uma database chamada "db_dragon" e siga o passo seguinte.
 
 ```bash
 
