@@ -14,11 +14,11 @@ export const Container = styled.div`
 
 export const FooterPage = styled.footer`
   background: ${props => props.theme.colorBackground2};
-  padding: 3rem 0rem;
+  padding: 2rem 0rem;
   border-top: 1px solid ${props => props.theme.colorBorders};
 
   @media (max-width: 768px) {
-    padding: 2rem 0rem;
+    padding: 1rem 0rem;
   }
 `;
 

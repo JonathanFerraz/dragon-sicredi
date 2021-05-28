@@ -168,7 +168,7 @@ export const Home: React.FC = () => {
                       <h1>Tipo</h1>
                       <p>{dragon.type}</p>
                     </div>
-                    <div>
+                    <div style={{ display: 'flex' }}>
                       <Button
                         variant={'solid-icon'}
                         color={'#121214'}

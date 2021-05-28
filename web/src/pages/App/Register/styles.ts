@@ -58,6 +58,11 @@ export const Grid = styled.div`
     > div > svg {
       width: 150px;
       margin-bottom: 2rem;
+
+      @media (max-width: 500px) {
+        width: 120px;
+        margin-bottom: 1rem;
+      }
     }
 
     h1 {
@@ -70,6 +75,11 @@ export const Grid = styled.div`
       @media (max-width: 768px) {
         font-size: 36px;
         line-height: 52px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 28px;
+        line-height: 38px;
       }
     }
   }

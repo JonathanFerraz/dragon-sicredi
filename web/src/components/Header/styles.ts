@@ -18,6 +18,12 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    > a > svg {
+      width: 100px;
+    }
+  }
 `;
 
 export const UserContainer = styled.div`
@@ -25,6 +31,10 @@ export const UserContainer = styled.div`
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 
   &:hover > div {
     border: 1px solid ${props => props.theme.colorSecondary};
@@ -42,6 +52,14 @@ export const UserContainer = styled.div`
 
     svg {
       width: 22px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0.6rem 0.8rem;
+
+      svg {
+        width: 18px;
+      }
     }
   }
 `;

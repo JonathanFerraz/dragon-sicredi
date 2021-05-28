@@ -8,4 +8,8 @@ export const Main = styled.main`
 
 export const Wrapper = styled.section`
   position: relative;
+
+  @media (max-width: 768px) {
+    padding-bottom: 3rem;
+  }
 `;

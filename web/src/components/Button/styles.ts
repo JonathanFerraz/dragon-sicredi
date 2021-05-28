@@ -28,6 +28,10 @@ export const ButtonRipple = styled(ButtonBase)<ButtonProps>`
   text-transform: uppercase !important;
   white-space: nowrap;
 
+  @media (max-width: 768px) {
+    font-size: 0.8rem !important;
+  }
+
   .tooltip {
     display: none;
   }

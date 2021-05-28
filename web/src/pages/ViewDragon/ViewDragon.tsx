@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
-import moment from 'moment';
 
 import { Layout, Shimmer } from '../../components';
+import { DateFormatter } from '../../utils/dataFormat';
 import { Container, CardBackground, List, Capitalize } from './styles';
 
 interface DragonProps {
@@ -27,12 +27,9 @@ export const ViewDragon: React.FC = () => {
       `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${id}`,
     );
     setData(data);
-    console.log(data);
   };
 
-  function formateDate() {
-    return moment(data?.createdAt).format('DD/MM/YYYY');
-  }
+  const date = new Date(data?.createdAt) as any;
 
   useEffect(() => {
     fetchData();
@@ -96,7 +93,7 @@ export const ViewDragon: React.FC = () => {
               </List>
               <List>
                 <p>
-                  Data de criação: <b>&nbsp;{formateDate()}</b>
+                  Data de criação: <b>&nbsp;{DateFormatter(date)}</b>
                 </p>
               </List>
             </>

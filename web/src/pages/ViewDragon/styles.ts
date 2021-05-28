@@ -28,6 +28,9 @@ export const Container = styled.div`
       line-height: 28px;
     }
   }
+  @media (max-width: 768px) {
+    height: unset;
+  }
 `;
 
 export const CardBackground = styled.div`
