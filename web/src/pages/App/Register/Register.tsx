@@ -105,9 +105,24 @@ export const Register: React.FC = () => {
         <Grid>
           <FormWrapper ref={formRef} onSubmit={handleSubmit}>
             <div>
-              <Input name="name" label="Nome" type="text" />
-              <Input name="email" label="E-mail" type="email" />
-              <Input name="password" label="Senha" type="password" />
+              <Input
+                name="name"
+                label="Nome"
+                type="text"
+                data-testid={'name-test'}
+              />
+              <Input
+                name="email"
+                label="E-mail"
+                type="email"
+                data-testid={'email-test'}
+              />
+              <Input
+                name="password"
+                label="Senha"
+                type="password"
+                data-testid={'password-test'}
+              />
               <Input
                 name="passwordConfirmation"
                 label="Confirmar senha"

@@ -12,6 +12,7 @@ export default {
   colorText: '#a8a8b3',
   colorSupport: '#737380',
   colorWhite: '#fff',
+  colorBlack: '#09090a',
   colorScrollbar: '#4d4d57',
   colorScrollbarBackground: 'transparent',
 };

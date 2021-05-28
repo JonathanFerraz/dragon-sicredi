@@ -38,17 +38,3 @@ export const Container = styled.div`
     color: ${props => props.theme.colorText};
   }
 `;
-
-export const Button = styled.button`
-  padding: 15px 25px;
-  border: none;
-  outline: none;
-  background: ${props => props.theme.colorGradient};
-  color: ${props => props.theme.colorWhite};
-  border-radius: 0.25rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  margin: 20px;
-`;

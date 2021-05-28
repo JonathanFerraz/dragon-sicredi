@@ -96,8 +96,18 @@ export const Login: React.FC = () => {
         <Grid>
           <FormWrapper ref={formRef} onSubmit={handleSubmit}>
             <div>
-              <Input name="email" label="E-mail" type="email" />
-              <Input name="password" label="Senha" type="password" />
+              <Input
+                name="email"
+                label="E-mail"
+                type="email"
+                data-testid={'email-test'}
+              />
+              <Input
+                name="password"
+                label="Senha"
+                type="password"
+                data-testid={'password-test'}
+              />
               <Button
                 type={'submit'}
                 variant={'solid'}

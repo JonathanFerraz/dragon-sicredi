@@ -6,32 +6,19 @@ import api from '../../services/api';
 
 const apiMock = new MockAdapter(api);
 
-describe('Auth hooke', () => {
+describe('Auth hook', () => {
   it('should be able to sign in', async () => {
     const apiResponse = {
-      agencia: null,
-      conta: null,
-      cooperativa: null,
-      escopo: 'interno',
-      roles: ['interno'],
-      telas: [
-        {
-          id: '603e87c2b6de6c7e6e7b482e',
-          titulo: 'Lorem, ipsum.',
-          icone: 'lorem/ipsum/dolor.svg',
-          subtitulo: 'Lorem ipsum dolor sit amet.',
-          url: '/lorem/ipsum',
-        },
-      ],
-      sessionToken: 'loremipsumdolorsitametconsecteturadipisici',
+      user: {
+        id: 'user-id',
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+      },
+      token: 'jwt-token',
     };
 
-    const usuario = 'teste';
-    const senha = 'teste123';
+    apiMock.onPost('sessions').reply(200, apiResponse);
 
-    apiMock
-      .onPost(`sessions?usuario=${usuario}&senha=${senha}`)
-      .reply(200, apiResponse);
     const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
 
     const { result, waitForNextUpdate } = renderHook(() => useAuth(), {
@@ -39,44 +26,31 @@ describe('Auth hooke', () => {
     });
 
     result.current.signIn({
-      usuario: usuario,
-      senha: senha,
+      email: 'johndoe@example.com',
+      password: '123456',
     });
 
     await waitForNextUpdate();
 
+    expect(setItemSpy).toHaveBeenCalledWith('@Dragon/token', apiResponse.token);
     expect(setItemSpy).toHaveBeenCalledWith(
-      '@PortalUnicred/sessionToken',
-      apiResponse.sessionToken,
+      '@Dragon/user',
+      JSON.stringify(apiResponse.user),
     );
-    expect(setItemSpy).toHaveBeenCalledWith(
-      '@PortalUnicred/user',
-      JSON.stringify(apiResponse),
-    );
-    expect(result.current.user.escopo).toEqual('interno');
+
+    expect(result.current.user.email).toEqual('johndoe@example.com');
   });
 
   it('should restore saved data from storage when auth inits', () => {
     jest.spyOn(Storage.prototype, 'getItem').mockImplementation(key => {
       switch (key) {
-        case '@PortalUnicred/sessionToken':
-          return 'loremipsumdolorsitametconsecteturadipisici';
-        case '@PortalUnicred/user':
+        case '@Dragon/token':
+          return 'jwt-token';
+        case '@Dragon/user':
           return JSON.stringify({
-            agencia: null,
-            conta: null,
-            cooperativa: null,
-            escopo: 'interno',
-            roles: ['interno'],
-            telas: [
-              {
-                id: '603e87c2b6de6c7e6e7b482e',
-                titulo: 'Lorem, ipsum.',
-                icone: 'lorem/ipsum/dolor.svg',
-                subtitulo: 'Lorem ipsum dolor sit amet.',
-                url: '/lorem/ipsum',
-              },
-            ],
+            id: 'user-id',
+            name: 'John Doe',
+            email: 'johndoe@example.com',
           });
         default:
           return null;
@@ -87,30 +61,19 @@ describe('Auth hooke', () => {
       wrapper: AuthProvider,
     });
 
-    expect(result.current.user.escopo).toEqual('interno');
+    expect(result.current.user.email).toEqual('johndoe@example.com');
   });
 
   it('should be able to sign out', async () => {
     jest.spyOn(Storage.prototype, 'getItem').mockImplementation(key => {
       switch (key) {
-        case '@PortalUnicred/sessionToken':
-          return 'loremipsumdolorsitametconsecteturadipisici';
-        case '@PortalUnicred/user':
+        case '@Dragon/token':
+          return 'jwt-token';
+        case '@Dragon/user':
           return JSON.stringify({
-            agencia: null,
-            conta: null,
-            cooperativa: null,
-            escopo: 'interno',
-            roles: ['interno'],
-            telas: [
-              {
-                id: '603e87c2b6de6c7e6e7b482e',
-                titulo: 'Lorem, ipsum.',
-                icone: 'lorem/ipsum/dolor.svg',
-                subtitulo: 'Lorem ipsum dolor sit amet.',
-                url: '/lorem/ipsum',
-              },
-            ],
+            id: 'user-id',
+            name: 'John Doe',
+            email: 'johndoe@example.com',
           });
         default:
           return null;

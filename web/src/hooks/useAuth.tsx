@@ -5,6 +5,7 @@ import api from '../services/api';
 interface User {
   id: string;
   name: string;
+  email: string;
 }
 
 interface SignInCredentials {
@@ -48,10 +49,9 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const { token, user } = response.data;
 
-    api.defaults.headers.authorization = `Bearer ${token}`;
-
     localStorage.setItem('@Dragon/user', JSON.stringify(user));
     localStorage.setItem('@Dragon/token', token);
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setAuthData({ token, user });
   }, []);

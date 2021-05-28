@@ -14,6 +14,8 @@ declare module 'styled-components' {
     colorText: string;
     colorSupport: string;
     colorWhite: string;
+    colorBlack: string;
+    colorScrollbar: string;
     colorScrollbarBackground: string;
   }
 }

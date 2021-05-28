@@ -108,10 +108,6 @@ export const Options = styled.div`
       transition: color 0.3s ease;
       color: ${props => props.theme.colorPrimary};
       margin-left: 0.5rem;
-
-      &:hover {
-        color: ${props => shade(0.2, props.theme.colorPrimary)};
-      }
     }
   }
 `;
