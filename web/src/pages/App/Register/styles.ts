@@ -42,6 +42,15 @@ export const Grid = styled.div`
   align-items: center;
   padding: 50px;
 
+  &:nth-of-type(1) {
+    order: 2;
+    margin-bottom: 4rem;
+  }
+
+  &:nth-of-type(2) {
+    order: 1;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -101,6 +110,5 @@ export const FormWrapper = styled(UnformForm)`
 
   @media (max-width: 768px) {
     padding: 24px;
-    height: 400px;
   }
 `;

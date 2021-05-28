@@ -29,7 +29,6 @@ export const Container = styled.div`
 
 export const FormWrapper = styled(UnformForm)`
   width: 100%;
-  height: 500px;
   background-color: ${props => props.theme.colorShape};
   border-radius: 0.75rem;
   display: flex;
@@ -55,6 +54,5 @@ export const FormWrapper = styled(UnformForm)`
 
   @media (max-width: 768px) {
     padding: 24px;
-    height: 400px;
   }
 `;
