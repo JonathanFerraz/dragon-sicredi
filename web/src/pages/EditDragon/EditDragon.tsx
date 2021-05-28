@@ -79,7 +79,7 @@ export const EditDragon: React.FC = () => {
         });
 
         const response = await axios.put(
-          `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${id}`,
+          `${process.env.REACT_APP_DRAGON_API}/${id}`,
           model,
         );
 
@@ -119,7 +119,7 @@ export const EditDragon: React.FC = () => {
 
   async function findManual(id: string) {
     const response = await axios.get<EditDragonProps>(
-      `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${id}`,
+      `${process.env.REACT_APP_DRAGON_API}/${id}`,
     );
     setModel({
       name: response.data.name,

@@ -67,6 +67,14 @@ Feito isso, clique em Finish e crie uma database chamada "db_dragon" e siga o pa
   yarn dev
 ```
 
+## Obs.:
+
+Após finalizar estas etapas, deve ser criado em .env dentro de /web para armazenar a chamada API
+
+```bash
+  REACT_APP_DRAGON_API = http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
+```
+
 ### Como começar a rodar a versão web
 
 ```bash

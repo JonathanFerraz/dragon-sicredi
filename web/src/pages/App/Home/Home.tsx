@@ -22,11 +22,10 @@ export const Home: React.FC = () => {
   const [idToDelete, setIdToDelete] = useState<number | any>();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const redirect = useRedirect();
-  const endpoint = 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon';
   const { addToast } = useToast();
 
   const fetchData = useCallback(async () => {
-    const { data } = await axios.get(endpoint);
+    const { data } = await axios.get(`${process.env.REACT_APP_DRAGON_API}`);
 
     const dragons = alphabeticalOrder(data);
 
@@ -47,7 +46,7 @@ export const Home: React.FC = () => {
   };
 
   async function deleteDragon(id: number) {
-    await axios.delete(`${endpoint}/${id}`);
+    await axios.delete(`${process.env.REACT_APP_DRAGON_API}/${id}`);
     addToast({
       title: 'Dragão deletado com sucesso!',
       description: 'Não será mais possível visualizar o dragão',

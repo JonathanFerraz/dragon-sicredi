@@ -24,7 +24,7 @@ export const ViewDragon: React.FC = () => {
 
   const fetchData = async () => {
     const { data } = await axios.get<DragonProps>(
-      `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${id}`,
+      `${process.env.REACT_APP_DRAGON_API}/${id}`,
     );
     setData(data);
   };
