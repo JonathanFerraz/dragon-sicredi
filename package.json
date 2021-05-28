@@ -5,6 +5,12 @@
   "repository": "https://github.com/JonathanFerraz/dragon-sicredi.git",
   "author": "Jonathan Ferraz <jonathan.chagas@e-unicred.com.br>",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
